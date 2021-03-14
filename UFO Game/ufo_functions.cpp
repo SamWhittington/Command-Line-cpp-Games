@@ -2,6 +2,23 @@
 #include <vector>
 
 // Define functions
+
+void display_status(std::vector<char> incorrect, std::string answer) {
+ 
+  std::cout << "\nIncorrect Guesses:\n";
+ 
+  for (int i = 0; i < incorrect.size(); i++) {
+    std::cout << incorrect[i] << ' ';
+  }
+ 
+  std::cout << "\nCodeword:\n";
+ 
+  for (int i = 0; i < answer.length(); i++) {
+    std::cout << answer[i] << ' ';
+  }
+ 
+}
+
 void end_game (std::string answer, std::string codeword) {
   if (answer == codeword) {
     std::cout << "Hooray! You saved the person and earned a medal of honor!";
