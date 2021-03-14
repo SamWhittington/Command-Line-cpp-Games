@@ -3,7 +3,7 @@
 
 int main() {
   std::string codeword = "codechallenge";
-  std::string answer = "___________";
+  std::string answer = "_____________";
   int misses = 0;
 
   greet();
