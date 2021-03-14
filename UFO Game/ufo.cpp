@@ -2,11 +2,13 @@
 #include "ufo_functions.hpp"
 
 int main() {
-  std::string codeword = "codeacademy";
+  std::string codeword = "codechallenge";
   std::string answer = "___________";
   int misses = 0;
 
   greet();
+
+  char letter;
 
   while (answer != codeword && misses < 7) {
 
@@ -14,21 +16,33 @@ int main() {
     bool guess = false;
 
     display_misses(misses);
-    std::cout << "Incorrect Guesses:\n";
+    display_status(incorrect, answer);
 
-    for (int i = 0; i < incorrect.size(); i++) {
-      std::cout << incorrect[i] << ' ';
+    std::cout << "Please enter your guess: ";
+    std::cin >> letter;
+
+    for (int i = 0; i < codeword.length(); i++) {
+      if ( letter == codeword[i]) {
+
+        answer[i] = letter;
+        guess = true;
+
+      }
     }
 
-    std::cout << "\nCodeword:\n";
- 
-    for (int i = 0; i < answer.length(); i++) {
-    std::cout << answer[i] << ' ';
-  }
+    if (guess) {
+      std::cout << "Correct!\n";
+    }
+    else {
+      std::cout << "Incorrect! The tractor beam pulls the person in further.\n";
+      incorrect.push_back(letter);
 
-    misses++;
-  }
+      misses++;
+    }
 
+      guess = false;
+    
+  }
   end_game(answer, codeword);
 
 }
